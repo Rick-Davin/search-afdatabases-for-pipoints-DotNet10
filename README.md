@@ -1,13 +1,13 @@
 # Search AFDatabases for PIPoints using .NET 10
 Uses AF SDK for .NET 8 NuGet package.  Searches an AFDatabase for PIPoints and logs them to an Excel workbook.
 
-You do not need Excel in order to run this application.  Granted, you will need Excel - or an equivalent viewer - to view the output from this application.
+You do not need Excel in order to run this application.  Granted, you will need Excel - or an equivalent viewer - to view the output from this application.  In fact, I am using LibreOffice Calc to view the generated workbooks.
 
 <h2>NuGet Packages</h2>
 
 **Aveva.AFSDK** - obviously
 
-**ClosedXml** - no need for sluggish Excel Automation and COM objects.  This package is very fast and super easy to use.  It will load and interact with OpenXml, which is not so easy to use.
+**ClosedXml** - no need for sluggish Excel Automation and COM objects.  This package is very fast and super easy to use.  It will load and interact with OpenXml, which is not so easy to use to put it nicely.
 
 **Microsoft.Extension.Hosting** - we want to do things the newer .NET way and not .NET Framework.  
 
@@ -15,7 +15,7 @@ You do not need Excel in order to run this application.  Granted, you will need 
 
 There are dozens of other transitive packages loaded by loading the above.
 
-Finally, one NuGet package to add but use with caution is **Costura.Fody**, which is an assembly weaver.  It will bundle up all the libs and DLL's so the resulting build will have less than 10 files in the build folder.  For this to work with AFSDK, I needed to exclude 1 DLL beginning with "Aveva" and 20 beginning with "OSIsoft".  This reduces my build folder from over 130 files down to less than 30.  While that is big improvement, I would still like to eventually see les than 10 files in the build folder one day.  Meanwhile, I am not happy to think that every .NET 8+ application I build will need almost 21 AVEVA-related DLL's residing in the build folder.
+Finally, one NuGet package to add but use with caution is **Costura.Fody**, which is an assembly weaver.  It will bundle up all the libs and DLL's so the resulting build will have less than 10 files in the build folder.  For this to work with AFSDK, I needed to exclude 1 DLL beginning with "Aveva" and 20 beginning with "OSIsoft".  This reduces my build folder from over 130 files down to about 30.  While that is big improvement, I would still like to eventually see les than 10 files in the build folder one day.  Meanwhile, I am not happy to think that every .NET 8+ application I build will need almost 21 AVEVA-related DLL's residing in the build folder.
 
 <h2>Prepping for Aveva.AFSDK</h2>
 
@@ -37,7 +37,7 @@ All in all, it is not a huge or major application but then again it is not small
 
 I wrote the .NET Framework app a year ago in anticipation of migrating to .NET 8.  So I did not use the **AppConfig** file.  I used **appsettings.json**, though I had my own custom reader code, as well as a custom console logger.
 
-For .NET 10, I start off using a **Generic Host**, where I can read appsettings.json and Environment variables easily.  I also switched so the **ILogger<T>** pattern.  **Serilog** was my chosen logging package, though you are free to change to your heart's desire.  All of this makes for a very different looking Program.Main that may be totally foreign to anyone who has only used .NET Framework.  While one could argue that AFSDK is rooted in the past, you can still be forward-looking as you migrate to .NET 8, 10, or beyond.
+For .NET 10, I start off using a **Generic Host**, where I can read appsettings.json and Environment variables easily.  I also switched so the **ILogger<T>** pattern.  **Serilog** was my chosen logging package, though you are free to change to your heart's desire.  All of this makes for a very different looking Program.Main that may be totally foreign to anyone who has only used .NET Framework.  While one could argue that AFSDK is rooted in the past, you can still be forward-looking as you migrate to .NET 8, 10, or beyond.  So get accustomed to a GlobalUsings class, and lots of nullability issues (more below).  Bring what you know about AFSDK forward but you may have to leave a lot of old .NET Framework stuff behind as you embrace .NET.
 
 Though there are few **async** calls, I set up the app as if there would be lots of them.  Again, I did not want a trival application.
 
