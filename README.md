@@ -25,4 +25,14 @@ The information is written to an Excel worksheet, and formatted with boders, col
 
 To write the output, I employ an **IReportWriter interface** along with a **ReportWriter abstract class** containing some virtual methods.  There are 2 concrete classes: **ExcelWriter** and **TextWriter**, and each has some overridden methods specific to its own implementation, but each also relies upon some common virtual methods defined in ReportWriter.
 
+<h2>Not a Trivial Port</h2>
 
+I wrote the .NET Framework app a year ago in anticipation of migrating to .NET 8.  So I did not use the **AppConfig** file.  I used **appsettings.json**, though I had my own custom reader code, as well as a custom console logger.
+
+For .NET 10, I start off using a **Generic Host**, where I can read appsettings.json and Environment variables easily.  I also switched so the **ILogger<T>** pattern.  **Serilog** was my chosen logging package, though you are free to change to your heart's desire.  All of this makes for a very different looking Program.Main that may be totally foreign to anyone who has only used .NET Framework.
+
+Though there are few **async** calls, I set up the app as if there would be lots of them.  Again, I did not want a trival application.
+
+I give Claude AI some thanks for helping out big time with Program.Main and the Dependency Injection of a MainWorker instance.
+
+After all that, you would think it would be ready to build but buckle in a LOT of nitpicky nullability issues.  Consider the .NET Framework snippet of ~PIPoint tag = null;~  In .NET 8+, this produces a compile error.  You will have to use PIPoint? instead.  And you will find yourself going up-and-down in your code peppering it with **?** when it can be null or **!** when you know it absolutely is not null.
