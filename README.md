@@ -21,7 +21,7 @@ Sadly, one NuGet package I was unable to use was **Costura.Fody**, which is an a
 
 It is not as simple as installing the NuGet package into your application.  I recommend you install all the prerequisite Microsoft Visual C++ Redistributables.  I don't care if you did it last month, do it again.
 
-Next, what seems not be mentioned in the AVEVA docs yet is that you really should have AF Client 2024 installed.  The key reason for this is that the KST (Known Servers Table) is moved out of the Windows Registry and as separate file.  It may not run everything for you, so you may need to manually run C:\Program Files\PIPC\AF\KSTMigrationTool.exe to create the KST as a file.
+Next, what seems not be mentioned in the AVEVA docs yet is that you really should have **AF Client 2024** installed.  The key reason for this is that the KST (Known Servers Table) is moved out of the Windows Registry and as separate file.  It may not run everything for you, so you may need to manually run C:\Program Files\PIPC\AF\KSTMigrationTool.exe to create the KST as a file.  With AF Client 2018, the KST is still stored in the Registry, and will not work with the AFSDK NuGet package.
 
 <h2>Not a Trivial Application</h2>
 
@@ -31,15 +31,17 @@ The information is written to an Excel worksheet, and formatted with boders, col
 
 To write the output, I employ an **IReportWriter interface** along with a **ReportWriter abstract class** containing some virtual methods.  There are 2 concrete classes: **ExcelWriter** and **TextWriter**, and each has some overridden methods specific to its own implementation, but each also relies upon some common virtual methods defined in ReportWriter.
 
+All in all, it is not a huge or major application but then again it is not small, trivial one either.  My eyes would glass over if all you showed to me is that you could connect to a PIServer and query the snapshot of SinUSOID.
+
 <h2>Not a Trivial Port</h2>
 
 I wrote the .NET Framework app a year ago in anticipation of migrating to .NET 8.  So I did not use the **AppConfig** file.  I used **appsettings.json**, though I had my own custom reader code, as well as a custom console logger.
 
-For .NET 10, I start off using a **Generic Host**, where I can read appsettings.json and Environment variables easily.  I also switched so the **ILogger<T>** pattern.  **Serilog** was my chosen logging package, though you are free to change to your heart's desire.  All of this makes for a very different looking Program.Main that may be totally foreign to anyone who has only used .NET Framework.  While one could argue that AS SDK is rooted in the past, you can still be forward-looking as you migrate to .NET 8, 10, or beyond.
+For .NET 10, I start off using a **Generic Host**, where I can read appsettings.json and Environment variables easily.  I also switched so the **ILogger<T>** pattern.  **Serilog** was my chosen logging package, though you are free to change to your heart's desire.  All of this makes for a very different looking Program.Main that may be totally foreign to anyone who has only used .NET Framework.  While one could argue that AFSDK is rooted in the past, you can still be forward-looking as you migrate to .NET 8, 10, or beyond.
 
 Though there are few **async** calls, I set up the app as if there would be lots of them.  Again, I did not want a trival application.
 
-I give Claude AI some thanks for helping out big time with Program.Main and the Dependency Injection of a MainWorker instance.
+I give Claude AI some thanks for helping out big time with Program.Main and the Dependency Injection of a MainWorker instance, as well as helping with ILogger calls and Serilog configuration.
 
 After all that, you would think it would be ready to build but buckle in a LOT of nitpicky nullability issues.  Consider the .NET Framework snippet of **PIPoint tag = null;**  In .NET 8+, this produces a compile error.  You will have to use **PIPoint?** instead.  And you will find yourself going up-and-down in your code peppering it with **?** when it can be null or **!** when you know it absolutely is not null.
 
