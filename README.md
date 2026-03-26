@@ -31,7 +31,7 @@ The information is written to an Excel worksheet, and formatted with boders, col
 
 To write the output, I employ an **IReportWriter interface** along with a **ReportWriter abstract class** containing some virtual methods.  There are 2 concrete classes: **ExcelWriter** and **TextWriter**, and each has some overridden methods specific to its own implementation, but each also relies upon some common virtual methods defined in ReportWriter.
 
-All in all, it is not a huge or major application but then again it is not small, trivial one either.  My eyes would glass over if all you showed to me is that you could connect to a PIServer and query the snapshot of SinUSOID.
+All in all, it is not a huge or major application but then again it is not small, trivial one either.  My eyes would glass over in sheer boredom if all you showed to me is that you could connect to a PIServer and query the snapshot of SINUSOID.
 
 <h2>Not a Trivial Port</h2>
 
