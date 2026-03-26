@@ -1,0 +1,27 @@
+﻿<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd">
+	<Costura>
+		<ExcludeAssemblies>
+			Aveva.PI.IdentityModel
+			OSIsoft.AF.Analysis.AnalysisRule.AnalysisSQC
+			OSIsoft.AF.Analysis.AnalysisRule.AnalysisTimeTrue
+			OSIsoft.AF.Analysis.AnalysisRule.EventFrame
+			OSIsoft.AF.Analysis.AnalysisRule.Imbalance
+			OSIsoft.AF.Analysis.AnalysisRule.PerformanceEquation
+			OSIsoft.AF.Analysis.AnalysisRule.Rollup
+			OSIsoft.AF.Asset.DataReference.Analysis
+			OSIsoft.AF.Asset.DataReference.Formula
+			OSIsoft.AF.Asset.DataReference.PIPoint
+			OSIsoft.AF.Asset.DataReference.StringBuilder
+			OSIsoft.AF.Asset.DataReference.TableLookup
+			OSIsoft.AF.Time.TimeRule.Event
+			OSIsoft.AF.Time.TimeRule.OR
+			OSIsoft.AF.Time.TimeRule.Periodic
+			OSIsoft.AFSDK
+			OSIsoft.PI.Configuration
+			OSIsoft.PI.Configuration.PISDKRegDirectoryProvider
+			OSIsoft.PI.Net
+			OSIsoft.PI.Resources
+			OSIsoft.PIAnalytics.PerformanceEquation
+		</ExcludeAssemblies>
+	</Costura>
+</Weavers>

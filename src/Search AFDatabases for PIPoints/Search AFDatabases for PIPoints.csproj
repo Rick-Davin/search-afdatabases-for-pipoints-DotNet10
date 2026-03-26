@@ -11,6 +11,9 @@
   <ItemGroup>
     <PackageReference Include="Aveva.AFSDK" Version="3.2.0.52" />
     <PackageReference Include="ClosedXML" Version="0.105.0" />
+    <PackageReference Include="Costura.Fody" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.5" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="10.0.0" />
 	<PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
