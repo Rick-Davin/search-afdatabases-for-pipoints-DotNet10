@@ -35,7 +35,9 @@ All in all, it is not a huge or major application but then again it is not small
 
 <h2>Not a Trivial Port</h2>
 
-I wrote the .NET Framework app a year ago in anticipation of migrating to .NET 8.  So I did not use the **AppConfig** file.  I used **appsettings.json**, though I had my own custom reader code, as well as a custom console logger.
+My overall goal was not to take a .NET Framework app and force fit it to run in .NET 10.  Rather, I wanted to create a .NET 10 app that just so happens to use AFSDK.
+
+I wrote the original .NET Framework app a year ago in anticipation of migrating to .NET 8.  At that time, I chose not to use the **AppConfig** file.  I used **appsettings.json** as it would also be used in .NET 8/10, though I had my own custom reader code, as well as a custom console logger.
 
 For .NET 10, I start off using a **Generic Host**, where I can read appsettings.json and Environment variables easily.  I also switched so the **ILogger<T>** pattern.  **Serilog** was my chosen logging package, though you are free to change to your heart's desire.  All of this makes for a very different looking Program.Main that may be totally foreign to anyone who has only used .NET Framework.  While one could argue that AFSDK is rooted in the past, you can still be forward-looking as you migrate to .NET 8, 10, or beyond.  So get accustomed to a GlobalUsings class, and lots of nullability issues (more below).  Bring what you know about AFSDK forward but you may have to leave a lot of old .NET Framework stuff behind as you embrace .NET.
 
