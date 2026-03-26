@@ -1,11 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Search_AFDatabases_for_PIPoints.Logic;
-using Search_AFDatabases_for_PIPoints.Models;
-using Serilog;
-
-namespace Search_AFDatabases_for_PIPoints
+﻿namespace Search_AFDatabases_for_PIPoints
 {
     // What is going on here?  This does not look like my old AF SDK console application in .NET Framework.
     //
