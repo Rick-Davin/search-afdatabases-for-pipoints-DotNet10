@@ -1,13 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Search_AFDatabases_for_PIPoints.Logic;
 using Search_AFDatabases_for_PIPoints.Models;
-using System.Threading.Tasks;
-using System.Diagnostics;
 using Serilog;
-    
+
 namespace Search_AFDatabases_for_PIPoints
 {
     // What is going on here?  This does not look like my old AF SDK console application in .NET Framework.
@@ -27,8 +24,6 @@ namespace Search_AFDatabases_for_PIPoints
     {
         static async Task Main(string[] args)
         {
-            long startTicks = Stopwatch.GetTimestamp();
-
             Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
             using IHost host = Host.CreateDefaultBuilder(args)
@@ -68,8 +63,6 @@ namespace Search_AFDatabases_for_PIPoints
             MainWorker worker = provider.GetRequiredService<MainWorker>();
             await worker.DoWorkAsync();
 
-
-            Console.WriteLine($"{Constant.DashLine}\nEND OF APPLICATION.  OVERALL ELAPSED TIME = {Stopwatch.GetElapsedTime(startTicks)}\n{Constant.DashLine}");
             Console.WriteLine("\n\nPress ENTER key to exit...");
             Console.ReadLine();
         }
