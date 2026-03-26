@@ -15,7 +15,7 @@ You do not need Excel in order to run this application.  Granted, you will need 
 
 There are dozens of other transitive packages loaded by loading the above.
 
-Sadly, one NuGet package I was unable to use was **Costura.Fody**, which is an assembly weaver.  It will bundle up all the libs and DLL's so the resulting build will have less than 10 files in the build folder.  I get AF SDK errors or no data when I use it, so I was forced to omit it.  And now I have over 130 files in the build folder.  Plus, I am not happy to think that every .NET 8+ application I build will need almost 20 AVEVA DLL's residing in the build folder.
+Finally, one NuGet package to add but use with caution is **Costura.Fody**, which is an assembly weaver.  It will bundle up all the libs and DLL's so the resulting build will have less than 10 files in the build folder.  For this to work with AFSDK, I needed to exclude 1 DLL beginning with "Aveva" and 20 beginning with "OSIsoft".  This reduces my build folder from over 130 files down to less than 30.  While that is big improvement, I would still like to eventually see les than 10 files in the build folder one day.  Meanwhile, I am not happy to think that every .NET 8+ application I build will need almost 21 AVEVA-related DLL's residing in the build folder.
 
 <h2>Prepping for Aveva.AFSDK</h2>
 
