@@ -1,4 +1,4 @@
-# search-afdatabases-for-pipoints-DotNet10
+# Search AFDatabases for PIPoints using .NET 10
 Uses AF SDK for .NET 8 NuGet package.  Searches an AFDatabase for PIPoints and logs them to an Excel workbook.
 
 You do not need Excel in order to run this application.  Granted, you will need Excel - or an equivalent viewer - to view the output from this application.
