@@ -38,3 +38,9 @@ I give Claude AI some thanks for helping out big time with Program.Main and the 
 After all that, you would think it would be ready to build but buckle in a LOT of nitpicky nullability issues.  Consider the .NET Framework snippet of **PIPoint tag = null;**  In .NET 8+, this produces a compile error.  You will have to use **PIPoint?** instead.  And you will find yourself going up-and-down in your code peppering it with **?** when it can be null or **!** when you know it absolutely is not null.
 
 And I lost a lot of time not realizing that **Costura.Fody** was blocking the PI calls.  All in all, I was able to port it over in around 6-hours.  I expect to spend more hours editing the README or creating a Wiki.
+
+<h2>Prepping for Aveva.AFSDK</h2>
+
+It is not as simple as installing the NuGet package into your application.  I recommend you install all the prerequisite Microsoft Visual C++ Redistributables.  I don't care if you did it last month, do it again.
+
+Next, what seems not be mentioned in the AVEVA docs yet is that you really should have AF Client 2024 installed.  The key reason for this is that the KST (Known Servers Table) is moved out of the Windows Registry and as separate file.  It may not run everything for you, so you may need to manually run C:\Program Files\PIPC\AF\**KSTMigrationTool**.exe to create the KST as a file.
