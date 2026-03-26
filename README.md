@@ -35,4 +35,4 @@ Though there are few **async** calls, I set up the app as if there would be lots
 
 I give Claude AI some thanks for helping out big time with Program.Main and the Dependency Injection of a MainWorker instance.
 
-After all that, you would think it would be ready to build but buckle in a LOT of nitpicky nullability issues.  Consider the .NET Framework snippet of ~PIPoint tag = null;~  In .NET 8+, this produces a compile error.  You will have to use PIPoint? instead.  And you will find yourself going up-and-down in your code peppering it with **?** when it can be null or **!** when you know it absolutely is not null.
+After all that, you would think it would be ready to build but buckle in a LOT of nitpicky nullability issues.  Consider the .NET Framework snippet of **PIPoint tag = null;**  In .NET 8+, this produces a compile error.  You will have to use **PIPoint?** instead.  And you will find yourself going up-and-down in your code peppering it with **?** when it can be null or **!** when you know it absolutely is not null
