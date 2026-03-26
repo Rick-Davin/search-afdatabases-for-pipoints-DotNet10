@@ -39,10 +39,10 @@ namespace Search_AFDatabases_for_PIPoints.Logic
         #region Public Methods
         public async Task DoWorkAsync()
         {
+            long startTicks = Stopwatch.GetTimestamp();
+
             try
             {
-                long startTicks = Stopwatch.GetTimestamp();
-
                 DisplayPreamble();
 
                 PISystem? assetServer = FindAssetServer(Features.AssetServer);
@@ -97,6 +97,8 @@ namespace Search_AFDatabases_for_PIPoints.Logic
             {
                 Logger.LogError(ex, "An unhandled exception was caught in DoWorkAsync.");
             }
+
+            Logger.LogInformation("\n{dashes}\nEND OF APPLICATION.  OVERALL ELAPSED TIME = {elapsed}\n{dashes}", Constant.DashLine, Stopwatch.GetElapsedTime(startTicks), Constant.DashLine);
         }
 
         #endregion
