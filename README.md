@@ -7,11 +7,11 @@ You do not need Excel in order to run this application.  Granted, you will need 
 
 **Aveva.AFSDK** - obviously
 
-**ClosedXml** - no need for sluggish Excel Automation and COM objects.  This package is very fast and super easy to use.  It will load and interact with OpenXml, which is not so easy to use to put it nicely.
+**ClosedXml** - no need for sluggish Excel Automation and COM objects.  This package is very fast and super easy to use.  It will load and interact with OpenXml, which is not so easy to use to put it nicely.  If I were to put it not so nicely, it would be a 2-page rant.
 
 **Microsoft.Extension.Hosting** - we want to do things the newer .NET way and not .NET Framework.  
 
-**Serilog.Extensions.Hossting** - for our console and file logging
+**Serilog.Extensions.Hosting** - for our console and file logging.
 
 There are dozens of other transitive packages loaded by loading the above.
 
@@ -21,7 +21,7 @@ Finally, one NuGet package to add but use with caution is **Costura.Fody**, whic
 
 It is not as simple as installing the NuGet package into your application.  I recommend you install all the prerequisite Microsoft Visual C++ Redistributables.  I don't care if you did it last month, do it again.
 
-Next, what seems not be mentioned in the AVEVA docs yet is that you really should have **AF Client 2024** installed.  The key reason for this is that the KST (Known Servers Table) is moved out of the Windows Registry and as separate file.  It may not run everything for you, so you may need to manually run C:\Program Files\PIPC\AF\KSTMigrationTool.exe to create the KST as a file.  With AF Client 2018, the KST is still stored in the Registry, and will not work with the AFSDK NuGet package.
+Next, what seems not be mentioned in the AVEVA docs yet is that you really should have **AF Client 2024** installed.  The key reason for this is that the KST (Known Servers Table) is moved out of the Windows Registry and as separate file.  It may not run everything for you, so you may need to manually run C:\Program Files\PIPC\AF\KSTMigrationTool.exe to create the KST as a file.  With AF Client 2018, the KST is still stored in the Registry, and that will not work with the AFSDK NuGet package.
 
 <h2>Not a Trivial Application</h2>
 
