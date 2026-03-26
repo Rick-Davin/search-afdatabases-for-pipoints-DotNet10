@@ -35,7 +35,7 @@ All in all, it is not a huge or major application but then again it is not small
 
 <h2>Not a Trivial Port</h2>
 
-My overall goal was not to take a .NET Framework app and force fit it to run in .NET 10.  Rather, I wanted to create a .NET 10 app that just so happens to use AFSDK.
+My overall goal was not to take a .NET Framework app and force fit it to run in .NET 10.  Rather, ***I wanted to create a .NET 10 app that just so happens to use AFSDK***.
 
 I wrote the original .NET Framework app a year ago in anticipation of migrating to .NET 8.  At that time, I chose not to use the **AppConfig** file.  I used **appsettings.json** as it would also be used in .NET 8/10, though I had my own custom reader code, as well as a custom console logger.
 
