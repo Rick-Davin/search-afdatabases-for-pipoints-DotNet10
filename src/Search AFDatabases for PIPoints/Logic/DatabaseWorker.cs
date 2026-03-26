@@ -1,20 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using OSIsoft.AF;
-using OSIsoft.AF.Asset;
-using OSIsoft.AF.Data;
-using OSIsoft.AF.PI;
-using OSIsoft.AF.Search;
-using OSIsoft.AF.Time;
-using Search_AFDatabases_for_PIPoints.Models;
-using Serilog.Core;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Search_AFDatabases_for_PIPoints.Logic
+﻿namespace Search_AFDatabases_for_PIPoints.Logic
 {
     internal class DatabaseWorker
     {

@@ -1,8 +1,4 @@
-﻿using Search_AFDatabases_for_PIPoints.Models;
-using OSIsoft.AF.Asset;
-using OSIsoft.AF.PI;
-
-namespace Search_AFDatabases_for_PIPoints.Logic
+﻿namespace Search_AFDatabases_for_PIPoints.Logic
 {
     internal class TextReport : ReportWriter
     {

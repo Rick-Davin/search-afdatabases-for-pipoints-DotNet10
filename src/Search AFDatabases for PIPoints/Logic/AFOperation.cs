@@ -1,7 +1,4 @@
-﻿using OSIsoft.AF;
-using OSIsoft.AF.PI;
-
-namespace Search_AFDatabases_for_PIPoints.Logic
+﻿namespace Search_AFDatabases_for_PIPoints.Logic
 {
     public static class AFOperation
     {

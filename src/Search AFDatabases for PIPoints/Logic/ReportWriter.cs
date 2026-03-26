@@ -1,12 +1,4 @@
-﻿using Search_AFDatabases_for_PIPoints.Models;
-using OSIsoft.AF.Asset;
-using OSIsoft.AF.PI;
-using System.Timers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OSIsoft.AF.Time;
+﻿using System.Timers;
 
 namespace Search_AFDatabases_for_PIPoints.Logic
 {

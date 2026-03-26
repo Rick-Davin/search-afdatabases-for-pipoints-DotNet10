@@ -1,19 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using OSIsoft.AF;
-using Search_AFDatabases_for_PIPoints.Models;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-
-// Why this extra layer for MainWorker?  
+﻿// Why this extra layer for MainWorker?  
 // MainWorker serves as the orchestrator of the entire application workflow, and is responsible for coordinating the various components and steps of the application.
-// By that definition, MainWork could be used in Program.Main, but even if I was using .NET Framework, I would keep MainWorker as a separate class and keep
+// By that definition, MainWork <could> be used in Program.Main, but even if I was using .NET Framework, I would keep MainWorker as a separate class and keep
 // Program.Main as minimal as possible.
 //
-// By having an MainWorker class, we can encapsulate all the logic related to orchestrating the workflow of the application in one place.
+// By having a MainWorker class, we can encapsulate all the logic related to orchestrating the workflow of the application in one place.
 // This makes it easier to maintain and test the code, as well as to add additional functionality in the future without cluttering the Main method.
+// And it fits in well with the Generic Host and Dependency Injection patterns found in Progrm.Main.
 
 namespace Search_AFDatabases_for_PIPoints.Logic
 {
