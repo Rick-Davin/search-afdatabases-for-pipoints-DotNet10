@@ -1,12 +1,4 @@
-﻿using OSIsoft.AF.Asset;
-using OSIsoft.AF.PI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Search_AFDatabases_for_PIPoints.Models
+﻿namespace Search_AFDatabases_for_PIPoints.Models
 {
     internal interface IReportWriter
     {
