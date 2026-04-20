@@ -25,13 +25,13 @@ Next, what seems not be mentioned in the AVEVA docs yet is that you really shoul
 
 <h2>Not a Trivial Application</h2>
 
-Just one day after AVEVA released its first ever NuGet package **Aveva.AFSDK**, I was able to port over a not-so-trivial .NET Framework application.  The app uses a paged **AFAttributeSearch** filtering on PIPoint data reference plugin.  The Asset-related info is then linked to Tag-related info thanks to bulk calls for PIPoint definitions and PI data calls. 
+All in all, it is not a huge or major application but then again it is not small, trivial one either.  My eyes would glass over in sheer boredom if all you showed to me is that you could connect to a PIServer and query the snapshot of SINUSOID.
+
+That said, just one day after AVEVA released its first ever NuGet package **Aveva.AFSDK**, I was able to port over a not-so-trivial .NET Framework application.  The app uses a paged **AFAttributeSearch** filtering on PIPoint data reference plugin.  The Asset-related info is then linked to Tag-related info thanks to bulk calls for PIPoint definitions and PI data calls. 
 
 The information is written to an Excel worksheet, and formatted with borders, color shadings, and a filter applied.  All this is thanks to **ClosedXml** and does not require the Excel application be installed to generate the worksheet.  There is a 1 million row limitation with Excel, so it may be best to choose a database that will find much less than that.  If you are sure you have a large database and unsure you can safely be less than 1 million rows, an **appsetting.json** property can request the output be a text file.
 
 To write the output, I employ an **IReportWriter interface** along with a **ReportWriter abstract class** containing some virtual methods.  There are 2 concrete classes: **ExcelWriter** and **TextWriter**, and each has some overridden methods specific to its own implementation, but each also relies upon some common virtual methods defined in ReportWriter.
-
-All in all, it is not a huge or major application but then again it is not small, trivial one either.  My eyes would glass over in sheer boredom if all you showed to me is that you could connect to a PIServer and query the snapshot of SINUSOID.
 
 <h2>Not a Trivial Port</h2>
 
